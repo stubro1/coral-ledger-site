@@ -15,13 +15,16 @@
 
 <p>Coral Ledger is a personal app that I (Stuart Brown) built and run for my own reef aquarium. I am its only user. This page explains, in plain language, what it does with Google account data when I connect my own account.</p>
 
-<h2>What data it uses</h2>
-<p>Coral Ledger only accesses a Google account after I sign in and approve access on Google's own consent screen. It uses that access for:</p>
+<h2>What Google data it uses</h2>
+<p>Coral Ledger only accesses a Google account after I sign in and approve access on Google's own consent screen. The only Google service it connects to is <strong>Google Photos</strong>, and it requests exactly two permissions:</p>
 <ul>
-  <li><strong>Google Photos:</strong> the photos I choose in Google's photo picker, so they can be attached to my coral records, and adding photos I take in the app to my own Google Photos library. It asks for append-only upload access, so it can't read, change, or delete the rest of my library.</li>
-  <li><strong>Gmail (planned, read-only):</strong> reading coral order, receipt, and shipping emails so purchase and arrival details can be filled in automatically. It will not send, delete, or change email.</li>
+  <li><strong>Pick photos (read-only):</strong> through Google's photo picker, Coral Ledger can see only the specific photos I choose, so they can be attached to my coral records. It can't browse or read the rest of my library. (Scope: <code>photospicker.mediaitems.readonly</code>.)</li>
+  <li><strong>Add photos (append-only):</strong> Coral Ledger can upload photos I take in the app to my own Google Photos library. It can't read, change, or delete anything already in my library. (Scope: <code>photoslibrary.appendonly</code>.)</li>
 </ul>
-<p>It doesn't collect data about other people and doesn't have any other users.</p>
+<p>Coral Ledger does not request access to Gmail or any other Google service. It doesn't collect data about other people and doesn't have any other users.</p>
+
+<h2>Order and shipping receipts</h2>
+<p>Coral purchase and shipping details are handled separately and do not use Google sign-in. I forward matching order and shipping emails to a dedicated inbox (hosted by AgentMail) that Coral Ledger reads. Coral Ledger has no access to my Gmail account.</p>
 
 <h2>Where the data is kept</h2>
 <p>Coral Ledger runs on my own Mac mini at home. The Google sign-in tokens and anything it saves (coral records, photos, order details) are stored on that computer. The app is only reachable from my own devices over my private network. It isn't hosted on a public server.</p>
@@ -33,14 +36,14 @@
   <li>No use of Google data for anything other than my own coral journal.</li>
   <li>No use of Google data to train AI or machine-learning models.</li>
 </ul>
-<p>Coral Ledger's use of information received from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+<p>Coral Ledger's use of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
 
 <h2>How to remove access</h2>
 <ul>
-  <li>Use the Disconnect option in Coral Ledger's Google settings, which deletes the stored tokens from the Mac mini.</li>
+  <li>Use the Disconnect option on Coral Ledger's photo strip, which deletes the stored Google tokens from the Mac mini.</li>
   <li>Or remove Coral Ledger from your Google account at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
 </ul>
-<p>Data already saved in the journal stays on the Mac mini until I delete it.</p>
+<p>Photos already saved in the journal stay on the Mac mini until I delete them. Photos already uploaded to Google Photos stay in my library.</p>
 
 <h2>Changes</h2>
 <p>If what Coral Ledger does with Google data changes, I'll update this page and the date at the top.</p>
